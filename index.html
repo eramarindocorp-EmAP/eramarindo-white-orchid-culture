@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b2b">
+<title>Eramarindo | White Orchid Culture</title>
+<style>
+:root{
+  --navy:#071b2b;--navy2:#0d2b40;--emerald:#087c68;--emerald2:#12a080;
+  --gold:#c8a75b;--gold2:#ead69c;--ink:#172b38;--muted:#667986;
+  --paper:#f4f7f6;--white:#fff;--line:#dce6e4;--soft:#eaf2ef;
+  --shadow:0 18px 50px rgba(7,27,43,.10);--radius:20px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.12)}
+.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}
+.mark{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:20px}
+.brand small{display:block;font-weight:500;color:#b9c9ce;font-size:10px;letter-spacing:.16em}
+.navlinks{display:flex;gap:5px;flex-wrap:wrap}
+.navlinks a{padding:9px 12px;border-radius:999px;color:#d8e3e5;font-size:13px}
+.navlinks a:hover{background:rgba(255,255,255,.1);color:#fff}
+.menu-btn{display:none;background:none;color:white;border:1px solid #557080;border-radius:10px;padding:8px 12px}
+.hero{background:radial-gradient(circle at 80% 15%,rgba(18,160,128,.23),transparent 30%),linear-gradient(120deg,#071b2b,#0d3548 65%,#0b4a43);color:#fff;overflow:hidden}
+.hero-inner{max-width:1180px;margin:auto;padding:76px 22px 78px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.eyebrow{color:var(--gold2);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.04;letter-spacing:-.04em;margin:16px 0}
+.hero p{max-width:650px;color:#d2e0e2;font-size:17px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:0;border-radius:999px;padding:12px 19px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.btn-primary{background:var(--gold);color:#172b38}.btn-primary:hover{background:#e0c57f;transform:translateY(-1px)}
+.btn-outline{border:1px solid rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-dark{background:var(--navy);color:#fff}.btn-soft{background:var(--soft);color:var(--emerald)}
+.hero-seal{width:min(290px,75vw);aspect-ratio:1;border:1px solid rgba(234,214,156,.65);border-radius:50%;margin:auto;display:grid;place-items:center;position:relative;box-shadow:0 0 0 16px rgba(255,255,255,.025),0 0 0 34px rgba(255,255,255,.02)}
+.hero-seal:before,.hero-seal:after{content:"";position:absolute;border:1px solid rgba(234,214,156,.3);border-radius:50%;inset:22px}
+.hero-seal:after{inset:48px}
+.seal-inner{text-align:center;z-index:1}.seal-flower{font-size:76px;color:var(--gold2);line-height:1}
+.seal-inner strong{display:block;letter-spacing:.2em;font-size:13px;color:var(--gold2);margin-top:12px}
+.seal-inner span{font-size:10px;letter-spacing:.18em;color:#c9d8dc}
+.container{max-width:1180px;margin:auto;padding:0 22px}
+section{padding:68px 0}
+.section-head{max-width:760px;margin-bottom:30px}
+.kicker{color:var(--emerald);font-size:11px;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+h2{font-size:clamp(27px,4vw,40px);line-height:1.15;letter-spacing:-.03em;margin:8px 0 12px;color:var(--navy)}
+.lead{color:var(--muted);font-size:16px}
+.grid{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 6px 24px rgba(7,27,43,.035)}
+.card h3{margin:7px 0 8px;color:var(--navy);font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
+.pillar-num{color:var(--gold);font-size:12px;font-weight:850;letter-spacing:.15em}
+.pillar-icon{width:42px;height:42px;border-radius:13px;background:var(--soft);display:grid;place-items:center;color:var(--emerald);font-size:20px;margin-bottom:13px}
+.statbar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-30px;position:relative}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.stat strong{display:block;color:var(--navy);font-size:27px;line-height:1.1}.stat span{color:var(--muted);font-size:12px}
+.soft-section{background:#eaf1ef}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{background:#fff;border:1px solid var(--line);padding:17px;border-radius:16px}
+.step b{color:var(--emerald);font-size:12px;letter-spacing:.08em}.step h3{font-size:16px;margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
+.assessment{background:var(--navy);color:#fff;border-radius:24px;padding:28px}
+.assessment h2{color:#fff}.assessment .lead{color:#c4d2d8}
+.quiz-question{font-size:20px;font-weight:750;margin:20px 0}
+.option{display:block;width:100%;text-align:left;padding:13px 15px;border-radius:12px;background:#102d40;border:1px solid #315064;color:#edf5f4;margin:9px 0}
+.option:hover{border-color:var(--gold)}.option.selected{background:#164d46;border-color:#5ac3a4}
+.quiz-meta{display:flex;justify-content:space-between;color:#bfd0d5;font-size:12px}
+.progress{height:7px;background:#294457;border-radius:99px;overflow:hidden;margin:10px 0 18px}.progress span{height:100%;display:block;background:var(--gold);width:0;transition:.25s}
+.result{background:#123e3b;border:1px solid #2c7868;border-radius:15px;padding:18px;margin-top:18px}
+.checklist label{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:flex-start;font-size:14px}
+.checklist input{accent-color:var(--emerald);margin-top:5px;width:17px;height:17px}
+.pilot-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:15px;overflow:hidden}
+.pilot-table th,.pilot-table td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line)}
+.pilot-table th{background:var(--navy);color:#fff;font-size:12px;letter-spacing:.06em}
+.pilot-table tr:last-child td{border-bottom:0}
+.callout{border-left:4px solid var(--gold);background:#fff;padding:20px 22px;border-radius:0 15px 15px 0;color:var(--muted)}
+.footer{background:var(--navy);color:#d0dcdf;padding:42px 0}
+.footer-inner{max-width:1180px;margin:auto;padding:0 22px;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer strong{color:var(--gold2);letter-spacing:.12em}.footer small{color:#9fb2ba}
+.tag{display:inline-block;background:#edf4f1;color:#087c68;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:800}
+.muted{color:var(--muted)}.tiny{font-size:12px;color:var(--muted)}
+.pillar-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.pillar-card.open .pillar-detail{display:block}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+summary{cursor:pointer;font-weight:750;color:var(--navy)}
+details p{color:var(--muted);font-size:14px}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero p{margin:auto}.hero-actions{justify-content:center}.hero-seal{width:210px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:12px 20px 18px;flex-direction:column}.navlinks.show{display:flex}.menu-btn{display:block}.grid-3{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){section{padding:48px 0}.grid-3,.grid-2{grid-template-columns:1fr}.statbar{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.hero-inner{padding-top:55px}.assessment{padding:20px}.pilot-table{font-size:12px}.pilot-table th,.pilot-table td{padding:10px 8px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="#home"><span class="mark">✿</span><span>ERAMARINDO<small>WHITE ORCHID CULTURE</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka navigasi">Menu ☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#philosophy">Filosofi</a><a href="#pillars">9 Pilar</a><a href="#learning">Pembelajaran</a><a href="#assessment">Assessment</a><a href="#implementation">Implementasi</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Human Character · Leadership · Spiritual Resilience</div>
+      <h1>Build the Character.<br><span style="color:var(--gold2)">Strengthen the People.</span></h1>
+      <p>White Orchid Culture adalah kerangka pembelajaran dan pengembangan manusia Eramarindo untuk membangun karakter, integritas, ketangguhan, kepemimpinan, dan kontribusi nyata.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pillars">Jelajahi 9 Pilar <span>→</span></a>
+        <a class="btn btn-outline" href="#assessment">Mulai Assessment</a>
+      </div>
+    </div>
+    <div class="hero-seal" aria-label="White Orchid Culture emblem">
+      <div class="seal-inner"><div class="seal-flower">✿</div><strong>WHITE ORCHID</strong><span>CULTURE · ERAMARINDO</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="statbar">
+    <div class="stat"><strong>9</strong><span>Pilar karakter</span></div>
+    <div class="stat"><strong>55</strong><span>Flashcards pembelajaran</span></div>
+    <div class="stat"><strong>5</strong><span>Tingkat pengembangan</span></div>
+    <div class="stat"><strong>90</strong><span>Hari pilot yang diusulkan</span></div>
+  </div>
+</div>
+
+<section id="philosophy">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Our foundation</div><h2>Karakter adalah fondasi keberlanjutan organisasi.</h2><p class="lead">Keberhasilan perusahaan tidak hanya ditentukan oleh modal, teknologi, aset, dan strategi. Kualitas manusia yang menjalankan organisasi juga menentukan kepercayaan, ketahanan, dan kinerja jangka panjang.</p></div>
+    <div class="grid grid-3">
+      <article class="card"><div class="pillar-icon">◇</div><h3>Character Before Position</h3><p>Jabatan adalah amanah. Karakter menjadi dasar bagaimana kewenangan dijalankan.</p></article>
+      <article class="card"><div class="pillar-icon">◎</div><h3>Integrity Before Recognition</h3><p>Kejujuran dan tanggung jawab lebih penting daripada pencitraan dan pengakuan.</p></article>
+      <article class="card"><div class="pillar-icon">✓</div><h3>Evidence Before Status</h3><p>Keputusan dan laporan harus didukung fakta, bukti, dan proses yang dapat ditelusuri.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="soft-section" id="pillars">
+  <div class="container">
+    <div class="section-head"><div class="kicker">The nine pillars</div><h2>Sembilan kekuatan White Orchid Culture</h2><p class="lead">Pilih setiap pilar untuk membaca makna dan contoh penerapannya dalam kehidupan kerja.</p></div>
+    <div class="grid grid-3" id="pillarGrid">
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 01</div><div class="pillar-icon">✧</div><h3>The Power of Divine Destiny</h3><p>Tujuan hidup, iman, dan tanggung jawab.</p><div class="pillar-detail">Menjalani tujuan hidup dengan kesadaran bahwa setiap kesempatan membawa tanggung jawab. Dalam pekerjaan: menetapkan niat yang benar, bekerja dengan sungguh-sungguh, dan menjaga amanah.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 02</div><div class="pillar-icon">◌</div><h3>The Power of Humility</h3><p>Rendah hati dan terbuka untuk belajar.</p><div class="pillar-detail">Menghargai orang lain, menerima masukan, mengakui keterbatasan, serta tidak merasa paling benar. Dalam pekerjaan: meminta klarifikasi dan memperbaiki kesalahan.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 03</div><div class="pillar-icon">≈</div><h3>The Power of Peace</h3><p>Ketenangan dan kedewasaan emosional.</p><div class="pillar-detail">Mengelola emosi dan menyelesaikan konflik secara tenang, adil, dan profesional. Damai bukan berarti menghindari masalah, tetapi menyelesaikannya dengan bijaksana.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 04</div><div class="pillar-icon">♡</div><h3>The Power of Gratitude</h3><p>Syukur dan penghargaan terhadap sesama.</p><div class="pillar-detail">Menghargai kesempatan, kontribusi, dan proses. Dalam pekerjaan: mengakui hasil kerja tim, memberi apresiasi yang tulus, dan tetap berusaha berkembang.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 05</div><div class="pillar-icon">◉</div><h3>The Power of Solitude</h3><p>Refleksi, doa, dan evaluasi diri.</p><div class="pillar-detail">Menyediakan waktu untuk berpikir jernih, berdoa sesuai keyakinan, dan mengevaluasi tindakan. Refleksi membantu keputusan lebih matang, bukan mengisolasi diri.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 06</div><div class="pillar-icon">⛰</div><h3>The Power of Resilience</h3><p>Ketangguhan dan kemampuan bangkit.</p><div class="pillar-detail">Menghadapi kesulitan dengan keberanian, belajar dari kegagalan, melakukan analisis akar masalah, dan menjalankan tindakan perbaikan.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 07</div><div class="pillar-icon">❝</div><h3>The Power of Words</h3><p>Komunikasi yang jujur dan membangun.</p><div class="pillar-detail">Menggunakan perkataan secara benar, santun, jelas, dan bertanggung jawab. Tidak menyebarkan rumor, membuat janji tanpa dasar, atau memanipulasi informasi.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 08</div><div class="pillar-icon">◎</div><h3>The Power of Vision</h3><p>Arah, prioritas, dan disiplin eksekusi.</p><div class="pillar-detail">Menerjemahkan visi menjadi sasaran, prioritas, indikator, dan tindakan terukur. Visi harus realistis, mempertimbangkan risiko, dan dievaluasi.</div></article>
+      <article class="card pillar-card" tabindex="0"><div class="pillar-num">PILLAR 09</div><div class="pillar-icon">✦</div><h3>The Power of Faith</h3><p>Iman, pengharapan, dan ketekunan.</p><div class="pillar-detail">Memelihara iman dan pengharapan sebagai sumber kekuatan moral dan spiritual, disertai usaha, tanggung jawab, dan penghormatan terhadap keyakinan setiap orang.</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Learning journey</div><h2>Dari memahami nilai menjadi perilaku nyata.</h2><p class="lead">Kerangka pembelajaran lima tingkat menghubungkan pengetahuan, keputusan, kepemimpinan, penerapan, dan pengakuan kompetensi internal.</p></div>
+    <div class="steps">
+      <div class="step"><b>LEVEL 01</b><h3>Knowledge</h3><p>55 flashcards dan kuis pemahaman sembilan pilar.</p></div>
+      <div class="step"><b>LEVEL 02</b><h3>Judgment</h3><p>Studi kasus dan pilihan tindakan dalam situasi kerja.</p></div>
+      <div class="step"><b>LEVEL 03</b><h3>Leadership</h3><p>Simulasi krisis, konflik, integritas, dan strategi.</p></div>
+      <div class="step"><b>LEVEL 04</b><h3>Behavior</h3><p>Observasi perilaku berbasis bukti dan coaching.</p></div>
+      <div class="step"><b>LEVEL 05</b><h3>Recognition</h3><p>Pengakuan internal setelah verifikasi seluruh persyaratan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft-section" id="assessment">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Knowledge check</div><h2>Assessment interaktif – Level 1</h2><p class="lead">Uji pemahaman awal melalui sepuluh pertanyaan. Pilih jawaban terbaik untuk melihat hasil dan pembahasan.</p></div>
+    <div class="assessment">
+      <div class="quiz-meta"><span id="qCount">PERTANYAAN 1 DARI 10</span><span id="qScore">0 dijawab</span></div>
+      <div class="progress"><span id="qProgress"></span></div>
+      <div id="quizArea">
+        <div class="quiz-question" id="question"></div>
+        <div id="options"></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;margin-top:18px">
+          <button class="btn btn-outline" id="prevBtn" type="button">← Sebelumnya</button>
+          <button class="btn btn-primary" id="nextBtn" type="button" disabled>Berikutnya →</button>
+        </div>
+      </div>
+      <div id="quizResult" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section id="implementation">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Implementation framework</div><h2>Implementasi terukur dan bertanggung jawab.</h2><p class="lead">Pilot 90 hari merupakan usulan untuk menguji kesiapan materi, fasilitator, proses penilaian, dan tata kelola sebelum penerapan lebih luas.</p></div>
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="tag">90-DAY PILOT</span><h3>Roadmap pelaksanaan</h3>
+        <table class="pilot-table">
+          <thead><tr><th>Periode</th><th>Fokus</th></tr></thead>
+          <tbody>
+            <tr><td>Hari 1–15</td><td>Persiapan dan baseline</td></tr>
+            <tr><td>Hari 16–30</td><td>Pembelajaran sembilan pilar</td></tr>
+            <tr><td>Hari 31–45</td><td>Assessment Level 1–2</td></tr>
+            <tr><td>Hari 46–60</td><td>Leadership challenge dan coaching</td></tr>
+            <tr><td>Hari 61–75</td><td>Observasi dan IDP</td></tr>
+            <tr><td>Hari 76–90</td><td>Evaluasi dan rekomendasi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <span class="tag">READINESS CHECKLIST</span><h3>Kesiapan program</h3>
+        <div class="checklist" id="checklist">
+          <label><input type="checkbox"> Master Manual direview dan disetujui</label>
+          <label><input type="checkbox"> SOP disetujui pejabat berwenang</label>
+          <label><input type="checkbox"> Unit pilot dan peserta ditetapkan</label>
+          <label><input type="checkbox"> Program Owner dan fasilitator ditunjuk</label>
+          <label><input type="checkbox"> Materi dan assessment diuji</label>
+          <label><input type="checkbox"> Form observasi dan IDP tersedia</label>
+          <label><input type="checkbox"> Perlindungan data dan mekanisme keberatan tersedia</label>
+          <label><input type="checkbox"> Jadwal, baseline, dan KPI ditetapkan</label>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:15px;font-size:13px"><b>Readiness progress</b><b id="checkProgress">0%</b></div>
+        <div class="progress" style="background:#e5ece9"><span id="checkBar" style="background:var(--emerald)"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><div class="kicker">Governance & integrity</div><h2>Budaya yang kuat harus didukung tata kelola yang adil.</h2></div>
+    <div class="grid grid-3">
+      <article class="card"><h3>Evidence-based</h3><p>Penilaian perilaku harus menggunakan contoh kejadian dan bukti yang dapat diverifikasi, bukan rumor atau kesan pribadi.</p></article>
+      <article class="card"><h3>Respect & inclusion</h3><p>Program menghormati martabat, privasi, keberagaman keyakinan, dan hak klarifikasi setiap peserta.</p></article>
+      <article class="card"><h3>Continuous improvement</h3><p>Hasil assessment digunakan untuk pembelajaran dan pengembangan, bukan sebagai satu-satunya dasar promosi atau sanksi.</p></article>
+    </div>
+    <div class="callout" style="margin-top:20px"><b>Catatan status dokumen:</b> Halaman ini merupakan prototipe informasi dan pembelajaran. Materi kebijakan, target, struktur, dan jadwal merupakan rancangan yang memerlukan review serta persetujuan Founder dan pejabat berwenang sebelum diberlakukan.</div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><strong>ERAMARINDO CORPORATION</strong><br><span>WHITE ORCHID CULTURE</span><br><small>Human Character · Leadership · Spiritual Resilience</small></div>
+    <div style="text-align:right"><b>LEARN – UNDERSTAND – PRACTICE – EVALUATE – IMPROVE</b><br><small>COMMITMENT · EXCELLENT · TRUSTED</small><br><small>© <span id="year"></span> Eramarindo Corporation · Draft Prototype</small></div>
+  </div>
+</footer>
+
+<script>
+const quiz = [
+ {q:"Apa makna utama The Power of Divine Destiny?",o:["Mengandalkan keberuntungan","Meyakini tujuan hidup dan menjalankan tanggung jawab dengan tuntunan Tuhan","Menunggu kesempatan datang","Menghindari tantangan"],a:1,e:"Keyakinan pada tujuan harus disertai tanggung jawab, usaha, dan tindakan nyata."},
+ {q:"Bagaimana karakter seseorang yang memiliki The Power of Humility?",o:["Merasa paling benar","Menolak kritik","Rendah hati, mau belajar, dan menghargai orang lain","Selalu mencari pengakuan"],a:2,e:"Kerendahan hati membuat seseorang terbuka terhadap pembelajaran dan perbaikan."},
+ {q:"Apa penerapan The Power of Peace ketika terjadi konflik kerja?",o:["Membalas dengan emosi","Menghindari semua pembicaraan","Menyelesaikan masalah dengan tenang, objektif, dan adil","Menyebarkan masalah"],a:2,e:"Kedamaian bukan berarti membiarkan masalah, melainkan menyelesaikannya secara dewasa."},
+ {q:"Apa bukti nyata The Power of Gratitude?",o:["Mengeluh atas keterbatasan","Menghargai kesempatan, orang lain, dan hasil kerja sambil terus memperbaiki diri","Berhenti berkembang","Membandingkan diri"],a:1,e:"Rasa syukur mendorong penghargaan dan tanggung jawab, bukan kepasifan."},
+ {q:"Apa tujuan The Power of Solitude?",o:["Mengisolasi diri dari tim","Menghindari tanggung jawab","Menyediakan waktu untuk refleksi, doa, dan evaluasi diri","Menolak kerja sama"],a:2,e:"Refleksi yang sehat membantu kejernihan pikiran dan pengenalan diri."},
+ {q:"Bagaimana The Power of Resilience ditunjukkan saat proyek gagal?",o:["Mencari kambing hitam","Menyerah","Belajar dari bukti, memperbaiki rencana, dan bangkit kembali","Menyembunyikan masalah"],a:2,e:"Ketangguhan berarti menghadapi kesulitan, belajar, dan melakukan perbaikan."},
+ {q:"Apa standar The Power of Words di lingkungan kerja?",o:["Berbicara keras agar dihormati","Menyampaikan informasi secara jujur, santun, jelas, dan bertanggung jawab","Menyebarkan rumor","Berjanji tanpa dasar"],a:1,e:"Kata-kata membangun kepercayaan. Komunikasi harus benar dan dapat dipertanggungjawabkan."},
+ {q:"Apa hubungan The Power of Vision dengan pekerjaan?",o:["Visi hanya slogan","Visi diterjemahkan ke target dan tindakan terukur","Visi tidak perlu dievaluasi","Visi hanya tugas pimpinan"],a:1,e:"Visi harus menjadi prioritas, sasaran, ukuran keberhasilan, dan eksekusi."},
+ {q:"Apa arti The Power of Faith bagi Team Eramarindo?",o:["Menggantikan kerja keras dengan doa saja","Mengabaikan risiko","Menjaga iman, doa, harapan, dan tindakan yang bertanggung jawab","Memaksakan keyakinan"],a:2,e:"Iman menjadi sumber kekuatan moral dan spiritual yang berjalan bersama usaha."},
+ {q:"Apa komitmen utama Golden RE People?",o:["Mengejar jabatan","Beriman, berintegritas, kompeten, tangguh, dan terus bertumbuh","Bekerja hanya saat diawasi","Mengutamakan kepentingan pribadi"],a:1,e:"Golden RE People terus membangun karakter, kompetensi, integritas, dan kontribusi."}
+];
+let current=0,answers={};
+const $=id=>document.getElementById(id);
+function renderQuiz(){
+ const q=quiz[current];$('qCount').textContent=`PERTANYAAN ${current+1} DARI ${quiz.length}`;
+ $('qScore').textContent=`${Object.keys(answers).length} dijawab`;
+ $('qProgress').style.width=`${Object.keys(answers).length/quiz.length*100}%`;
+ $('question').textContent=q.q;$('options').innerHTML='';
+ q.o.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='option'+(answers[current]===i?' selected':'');b.textContent=String.fromCharCode(65+i)+'. '+opt;b.onclick=()=>{answers[current]=i;renderQuiz()};$('options').appendChild(b)});
+ $('prevBtn').disabled=current===0;$('nextBtn').disabled=answers[current]===undefined;
+ $('nextBtn').textContent=current===quiz.length-1?'Lihat hasil':'Berikutnya →';
+}
+$('prevBtn').onclick=()=>{if(current>0){current--;renderQuiz()}};
+$('nextBtn').onclick=()=>{if(current<quiz.length-1){current++;renderQuiz()}else showResult()};
+function showResult(){
+ const score=quiz.reduce((s,q,i)=>s+(answers[i]===q.a?10:0),0);
+ $('quizArea').hidden=true;$('quizResult').hidden=false;
+ const title=score>=90?'Excellent – Sangat Baik':score>=80?'Good – Baik':score>=60?'Developing – Perlu Penguatan':'Needs Improvement – Perlu Pembelajaran Ulang';
+ let html=`<div class="result"><div style="font-size:12px;color:#b7d9ce">HASIL ASSESSMENT</div><div style="font-size:42px;font-weight:850">${score}/100</div><b>${title}</b><p style="color:#c7ded7">Skor menunjukkan pemahaman pada kuis ini, bukan penilaian menyeluruh atas karakter atau kinerja.</p></div>`;
+ quiz.forEach((q,i)=>{const ok=answers[i]===q.a;html+=`<div style="padding:14px 0;border-bottom:1px solid #315064"><b>${i+1}. ${q.q}</b><div style="font-size:13px;color:${ok?'#83d7b4':'#f1c37d'};margin:5px 0">${ok?'✓ Jawaban tepat':'Perlu diperbaiki'} · Jawaban terbaik: ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}</div><div style="font-size:13px;color:#bfd0d5">${q.e}</div></div>`});
+ html+='<button class="btn btn-primary" style="margin-top:18px" onclick="resetQuiz()">Ulangi assessment</button>';
+ $('quizResult').innerHTML=html;
+}
+function resetQuiz(){current=0;answers={};$('quizArea').hidden=false;$('quizResult').hidden=true;renderQuiz()}
+document.querySelectorAll('.pillar-card').forEach(card=>{card.addEventListener('click',()=>card.classList.toggle('open'));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.classList.toggle('open')}})});
+function updateChecklist(){const boxes=[...document.querySelectorAll('#checklist input')];const n=boxes.filter(x=>x.checked).length;const pct=Math.round(n/boxes.length*100);$('checkProgress').textContent=pct+'%';$('checkBar').style.width=pct+'%'}
+document.querySelectorAll('#checklist input').forEach(x=>x.addEventListener('change',updateChecklist));
+$('menuBtn').onclick=()=>$('navlinks').classList.toggle('show');
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>$('navlinks').classList.remove('show')));
+$('year').textContent=new Date().getFullYear();renderQuiz();
+</script>
+</body>
+</html>
